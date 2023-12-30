@@ -16,10 +16,18 @@
  * Microsoft.VisualStudio.Web.CodeGeneration.Design 7.0.11
  * Swashbuckle.AspNetCore 6.5.0
   ##  configure in visual studio
- * in the file appsettings.json in the DevConnection change the server name to the corresponding installed server
+ * in the file appsettings.json in the DevConnection change the server name to the corresponding installed server if it is in visual studio
  *  go to tools -----> package manager -----> package manager console
- * Execute this command
-    
+ * Execute this command  
+   ---
+       enable-migrations
+       Update-Database
+    ---
+ ##  configure in other code editor 
+ * in the file appsettings.json in the DevConnection change the server name with Server=.,1433
+ * User Id = with your User Id
+ * password = with your password
+ * Execute this command  
    ---
        enable-migrations
        Update-Database
