@@ -1,13 +1,16 @@
-
+<!-- Main container div -->
 <div class="container">
+
   <div class="row">
     <div class="">
-      <mat-toolbar color="primary" >
-        <samp >worker Detail Register</samp>
+      <!--  Material Toolbar component with a primary color -->
+      <mat-toolbar color="primary">
+        <samp>worker Detail Register</samp>
         <samp class="example-spacer"></samp>
+        <!-- Button to open the add/edit worker form -->
         <button mat-raised-button color="warn" (click)="openAddEditEmpform()">
           ADD worker
-          </button>
+        </button>
       </mat-toolbar>
       <div class="row mt-5">
         <div class="">
@@ -16,70 +19,78 @@
               <mat-label>Filter</mat-label>
               <input matInput (keyup)="applyFilter($event)" placeholder="Ex.Mia" #input>
             </mat-form-field>
-      
-      
-      
+
+            <!-- Table to display data -->
             <table mat-table [dataSource]="dataSource" matSort>
-      
-              <!-- Position Column -->
+
+              <!-- table  Column ID  -->
               <ng-container matColumnDef="workerDetailId">
-                <th  mat-sort-header mat-header-cell *matHeaderCellDef>
+                <th mat-sort-header mat-header-cell *matHeaderCellDef>
                   ID
                 </th>
-                <td   mat-cell *matCellDef="let element"> {{element.workerDetailId}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.workerDetailId}} </td>
               </ng-container>
-      
+              <!-- table  Column workerfirstame  -->
+
               <ng-container matColumnDef="workerfirstame">
-                <th  mat-sort-header mat-header-cell *matHeaderCellDef >
+                <th mat-sort-header mat-header-cell *matHeaderCellDef>
                   name
                 </th>
                 <td mat-cell *matCellDef="let element"> {{element.workerfirstame}} </td>
               </ng-container>
+              <!-- table  Column workerlastName  -->
               <ng-container matColumnDef="workerlastName">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   Lastname
                 </th>
                 <td mat-cell *matCellDef="let element"> {{element.workerlastName}} </td>
               </ng-container>
+              <!-- table  Column workerbirthday  -->
               <ng-container matColumnDef="workerbirthday">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   birthday
                 </th>
-                <td mat-cell *matCellDef="let element"> {{ datePipe.transform (element.workerbirthday ,"dd/MM/yyyy")}} </td>
+                <td mat-cell *matCellDef="let element"> {{ datePipe.transform (element.workerbirthday ,"dd/MM/yyyy")}}
+                </td>
               </ng-container>
+              <!-- table  Column startdate  -->
               <ng-container matColumnDef="stardate">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                  stardate
+                  startdate
                 </th>
                 <td mat-cell *matCellDef="let element"> {{ datePipe.transform (element.stardate ,"dd/MM/yyyy")}} </td>
               </ng-container>
+              <!-- table  Column salary  -->
               <ng-container matColumnDef="salary">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   salary
                 </th>
                 <td mat-cell *matCellDef="let element"> {{element.salary }} € </td>
               </ng-container>
+              <!-- table  Column action  -->
               <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   Action
                 </th>
+                <!-- update button -->
                 <td mat-cell *matCellDef="let element" class="action">
                   <button mat-icon-button color="primary" (click)="editWorkForm(element)">
                     <mat-icon>edit</mat-icon>
                   </button>
+                  <!-- delete button -->
                   <button mat-icon-button color="warn" (click)="deleteWork(element.workerDetailId)">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>
-      
+
               </ng-container>
-      
+
               <!-- Symbol Column -->
               <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
             </table>
           </div>
-      
+
         </div>
       </div>
     </div>

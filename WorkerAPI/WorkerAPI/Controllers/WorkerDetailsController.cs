@@ -24,10 +24,12 @@ namespace WorkerAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<WorkerDetail>>> GetPaymentDetails()
         {
-          if (_context.PaymentDetails == null)
+            // Check if the PaymentDetails collection is null
+            if (_context.PaymentDetails == null)
           {
               return NotFound();
           }
+            // Return the list of WorkerDetails asynchronously
             return await _context.PaymentDetails.ToListAsync();
         }
 
@@ -35,10 +37,14 @@ namespace WorkerAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<WorkerDetail>> GetWorkerDetail(int id)
         {
-          if (_context.PaymentDetails == null)
+           // Check if the PaymentDetails collection is null
+
+            if (_context.PaymentDetails == null)
           {
               return NotFound();
           }
+            // Find the WorkerDetail with the specified id
+
             var workerDetail = await _context.PaymentDetails.FindAsync(id);
 
             if (workerDetail == null)
@@ -54,13 +60,14 @@ namespace WorkerAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutWorkerDetail(int id, WorkerDetail workerDetail)
         {
+            // Check if the provided id matches the WorkerDetailId in the request body
             if (id != workerDetail.WorkerDetailId)
             {
                 return BadRequest();
                 
 
             }
-
+            // Mark the entity as modified and save changes
             _context.Entry(workerDetail).State = EntityState.Modified;
 
             try
@@ -69,6 +76,8 @@ namespace WorkerAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
+                // Check if the WorkerDetail with the specified id exists
+
                 if (!WorkerDetailExists(id))
                 {
                     return NotFound();
@@ -78,7 +87,7 @@ namespace WorkerAPI.Controllers
                     throw;
                 }
             }
-
+            // Return a successful response with no content
             return NoContent();
         }
 
@@ -87,13 +96,16 @@ namespace WorkerAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<WorkerDetail>> PostWorkerDetail(WorkerDetail workerDetail)
         {
-          if (_context.PaymentDetails == null)
+            // Check if the PaymentDetails collection is null
+            if (_context.PaymentDetails == null)
           {
               return Problem("Entity set 'WorkerDetailContext.PaymentDetails'  is null.");
           }
+            // Add the new WorkerDetail to the PaymentDetails collection and save changes
+
             _context.PaymentDetails.Add(workerDetail);
             await _context.SaveChangesAsync();
-
+            // Return a 201 Created response with the created WorkerDetail
             return CreatedAtAction("GetWorkerDetail", new { id = workerDetail.WorkerDetailId }, workerDetail);
         }
 
@@ -101,22 +113,28 @@ namespace WorkerAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWorkerDetail(int id)
         {
+            // Check if the PaymentDetails collection is null
+
             if (_context.PaymentDetails == null)
             {
                 return NotFound();
             }
+            // Find the WorkerDetail with the specified id
+
             var workerDetail = await _context.PaymentDetails.FindAsync(id);
+            // If the WorkerDetail is not found, return NotFound
             if (workerDetail == null)
             {
                 return NotFound();
             }
-
+            // Remove the WorkerDetail from the PaymentDetails collection and save changes
             _context.PaymentDetails.Remove(workerDetail);
             await _context.SaveChangesAsync();
-
+            // Return a successful response with no content
             return NoContent();
         }
 
+        // Check if a WorkerDetail with the specified id exists
         private bool WorkerDetailExists(int id)
         {
             return (_context.PaymentDetails?.Any(e => e.WorkerDetailId == id)).GetValueOrDefault();

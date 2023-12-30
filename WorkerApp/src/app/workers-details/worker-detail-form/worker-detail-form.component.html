@@ -1,46 +1,55 @@
+<!-- Mat Dialog Title -->
 <div mat-dialog-title> Worker Form </div>
-<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()" >
-<div mat-dialog-content class="content">
-    <div class="row" >
-        
-            <mat-form-field appearance="outline">
-              <mat-label>First Nom</mat-label >
-              <input matInput placeholder="Ex. muller" formControlName ="workerfirstame" >
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label> Last Nom</mat-label>
-                <input matInput placeholder="Ex. Yuna" formControlName ="workerlastName" >
-              </mat-form-field>
-            
-            <div class="row" >
-            
-              
-               <mat-form-field appearance="outline">
-                <mat-label>birthday</mat-label>
-                <input matInput [matDatepicker]="birthday" formControlName="workerbirthday" >
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="birthday"></mat-datepicker-toggle>
-                <mat-datepicker #birthday></mat-datepicker>
-              </mat-form-field> 
-              <mat-form-field appearance="outline">
-                <mat-label>startdate</mat-label >
-                <input matInput [matDatepicker]="picker" formControlName="stardate">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-              
-                    <mat-form-field appearance="outline">
-                        <mat-label> salary</mat-label>
-                        <input matInput placeholder="Ex. 4000" formControlName ="salary" >
-                      </mat-form-field>
-                  
-            </div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+  <!-- Mat Dialog Content -->
+  <div mat-dialog-content class="content">
+    <!-- Row for worker information -->
+    <div class="row">
+      <!-- Mat Form Field for Worker's First Name -->
+      <mat-form-field appearance="outline">
+        <mat-label>First Nom</mat-label>
+        <input matInput placeholder="Ex. muller" formControlName="workerfirstame">
+      </mat-form-field>
+      <!-- Mat Form Field for Worker's last  Name -->
+      <mat-form-field appearance="outline">
+        <mat-label> Last Nom</mat-label>
+        <input matInput placeholder="Ex. Yuna" formControlName="workerlastName">
+      </mat-form-field>
+      <div class="row">
+
+        <!-- Mat Form Field for Worker's  birthday-->
+        <mat-form-field appearance="outline">
+          <mat-label>birthday</mat-label>
+          <input matInput [matDatepicker]="birthday" formControlName="workerbirthday">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="birthday"></mat-datepicker-toggle>
+          <mat-datepicker #birthday></mat-datepicker>
+        </mat-form-field>
+        <!-- Mat Form Field for Worker's Start Date -->
+        <mat-form-field appearance="outline">
+          <mat-label>startdate</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="stardate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <!-- Mat Form Field for Worker's Salary -->
+        <mat-form-field appearance="outline">
+          <mat-label> salary</mat-label>
+          <input matInput placeholder="Ex. 4000" formControlName="salary">
+        </mat-form-field>
+
+      </div>
     </div>
-    
-</div>
-<div mat-dialog-actions class="action">
-    <button mat-raised-button color="warn" class="button" type="button" type="button" [mat-dialog-close]="false">Cancel</button>
+
+  </div>
+  <!-- Mat Dialog Actions -->
+  <div mat-dialog-actions class="action">
+    <!-- Cancel Button -->
+
+    <button mat-raised-button color="warn" class="button" type="button" type="button"
+      [mat-dialog-close]="false">Cancel</button>
+    <!-- Save/Update Button based on whether data is present -->
     <button mat-raised-button color="primary" class="button" type="submit">{{data ? 'Update': 'Save'}}</button>
-</div>
-</form>[
+  </div>
+</form>

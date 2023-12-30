@@ -17,40 +17,21 @@ import { Observable } from 'rxjs';
 export class WorkerDetailService {
   url: string = environment.apiBaseUrl + '/WorkerDetails'
   url1: string = environment.apiBaseUrl + '/WorkerDetails/'
-  formData: WorkerDetail = new WorkerDetail()
-  dataSource!: MatTableDataSource<any>
-  //@ViewChild(MatSort)
-  //sort: MatSort = new MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private http: HttpClient) { }
-
-
   //Create Date
   addWorker(data: any): Observable<any> {
     return this.http.post(this.url, data)
   }
-  //Fetch Data
-  refreshTable1() { 
-    this.http.get(this.url)
-      .subscribe({
-        next: (res: any) => {
-          this.dataSource = new MatTableDataSource(res);
-          //this.dataSource.sort = this.sort;
-          //this.dataSource.paginator = this.paginator;
-        }
-      })
-  }
-  getAllWorker(): Observable<any>{
-      return this.http.get(this.url);
+  getAllWorker(): Observable<any> {
+    return this.http.get(this.url);
   }
   //Delete Data 
-  deleteWorker(id:any): Observable<any>
-  {
-     return this.http.delete(this.url1+id);   
+  deleteWorker(id: any): Observable<any> {
+    return this.http.delete(this.url1 + id);
   }
-   updateWorker(id:string , date:any): Observable<any>
-   {
-      return this.http.put(this.url1+id,date);   
-   }
- 
+  //Update data
+  updateWorker(id: string, date: any): Observable<any> {
+    return this.http.put(this.url1 + id, date);
+  }
+
 }

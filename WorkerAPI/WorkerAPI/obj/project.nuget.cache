@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CiUO20gMpTWKdxYuA11hdGKuoSHgg40iXrwf9uAus1tf0QEok/c2q8B0M601SUvC5FxksHZnvFFyZoewGEwFlQ==",
+  "dgSpecHash": "a2KrW19zdRhYt9RaTJwVgYAqUoWZvkiqnadI5AXPsFuD/yQ/KXRiOcTOSMDjGKmFHqxyh5ezrsJq0sVEPbctyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bit-Care\\Desktop\\Testproject\\WorkerAPI\\WorkerAPI\\WorkerAPI.csproj",
+  "projectFilePath": "C:\\Users\\Bit-Care\\Desktop\\projectAngularFinl\\WorkerAPI\\WorkerAPI\\WorkerAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bit-Care\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Bit-Care\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
