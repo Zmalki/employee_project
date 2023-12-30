@@ -88,8 +88,13 @@ export class AppComponent {
   }
   // Method to open the dialog for editing worker details
   editWorkForm(data: any) {
-    this.dialog.open(WorkerDetailFormComponent, {
+    const dialogRef = this.dialog.open(WorkerDetailFormComponent, {
       data,
-    })
+    });
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        this.refreshTable();
+      },
+    });
   }
 }

@@ -20,6 +20,7 @@ export class WorkerDetailService {
   constructor(private http: HttpClient) { }
   //Create Date
   addWorker(data: any): Observable<any> {
+    delete data.workerDetailId
     return this.http.post(this.url, data)
   }
   getAllWorker(): Observable<any> {

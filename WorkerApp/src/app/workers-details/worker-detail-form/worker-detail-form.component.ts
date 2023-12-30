@@ -17,6 +17,7 @@ export class WorkerDetailFormComponent implements OnInit {
       @Inject(MAT_DIALOG_DATA) public data: any) {
       // Form initialization with default values.
       this.empForm = this.fb.group({
+         workerDetailId:'' ,
          workerfirstame: '',
          workerlastName: '',
          workerbirthday: '',
