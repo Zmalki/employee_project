@@ -49,6 +49,12 @@
       
       npm install -g @angular/core@16.2.12
  ---
+ * install sweetAlert2 Execute this command :
+  ---
+      
+      npm install sweetalert2
+ ---
+
    * install Package Manager: npm 10.2.3
    Execute this command :
  ---
